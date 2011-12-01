@@ -1,10 +1,14 @@
 Purpose: Use Ruby and Net::SSH to span SSH sessions to Xen Dom0's with commands such as "xm list"
 
-To Do:
+
+xenquery.rb:
+Done:
 I would prefer this worked with my ssh keys.
 Currently it only works with a password.
 
 I think I'd prefer a simple menu where I choose from a small list of my favorite commands such as: xm list, xen-list-images, xm info, etc
 
+
+To Do:
 I'd like to be able to see the host IP address and DNS name
 
