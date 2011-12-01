@@ -7,14 +7,7 @@ filename = 'hosts.txt'
 hosts_file_opened = File.open(filename)
 hosts = hosts_file_opened.read()
 
-print "Username: "
-username = gets.chomp()
-print "Password: "
-system "stty -echo"
-password = gets.chomp()
-# Note: if a user cancels this script before setting -echo back to echo they won't see anything when they type at the terminal
-system "stty echo"
-puts
+username = 'root'
 
 puts "Command examples: xm list, xen-list-images, etc."
 print "Command: "
@@ -23,7 +16,7 @@ puts
 
 hosts.each do |host|
   begin
-    Net::SSH.start( host.chomp , username, :password => password, :timeout => 10) do |ssh|
+    Net::SSH.start( host.chomp , username, :timeout => 10) do |ssh|
       results = ssh.exec! cmd
       puts "#" * 10
       puts "# Results for #{host}"
