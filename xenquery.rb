@@ -16,6 +16,7 @@ password = gets.chomp()
 system "stty echo"
 puts
 
+puts "Command examples: xm list, xen-list-images, etc."
 print "Command: "
 cmd = gets.chomp()
 puts
