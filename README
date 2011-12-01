@@ -1,0 +1,1 @@
+Purpose: Use Ruby and Net::SSH to span SSH sessions to Xen Dom0's with commands such as "xm list"
