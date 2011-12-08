@@ -1,6 +1,12 @@
 Purpose: Use Ruby and Net::SSH to span SSH sessions to Xen Dom0's with commands such as "xm list"
 
 
+Legacy:
+The following scripts aren't really necessary anymore. xenquery.rb uses a menu system and replaces these.
+xen_list_images.rb
+xm_list.rb
+
+
 xenquery.rb:
 Done:
 I would prefer this worked with my ssh keys.
