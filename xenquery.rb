@@ -8,7 +8,7 @@ require 'rubygems'
 require 'net/ssh'
 require 'highline/import'
 
-filename = 'hosts.txt'
+filename = './hosts.txt'
 hosts_file_opened = File.open(filename)
 hosts = hosts_file_opened.read()
 
