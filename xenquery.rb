@@ -38,6 +38,12 @@ end
 
 
 puts
+
+# For each item in the array hosts do stuff
+# Iterate over each item in the array hosts
+# Assign the current iterated item from the array to the variable hosts
+# array_of_host_ip_addresses.each do |iterated_host_ip_address|
+
 hosts.each do |host|
   begin
     Net::SSH.start( host.chomp , username, :timeout => 10) do |ssh|
