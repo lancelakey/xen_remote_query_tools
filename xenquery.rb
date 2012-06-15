@@ -12,14 +12,16 @@
 # This script assumes authentication with SSH keys
 
 command = case ARGV[0]
-when "list", nil
+when "list", nil 
   "xm list"
 when "info"
   "xm info"
 when "images"
   "xen-list-images"
 else
-  raise "no such command: #{ARGV[0]}"
+  puts "Error: no such command: #{ARGV[0]}"
+  puts "Usage: \'xenquery.rb xm list\' "
+  exit(1)                                                                                                                                                                                                
 end
 
 
