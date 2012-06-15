@@ -11,30 +11,26 @@
 # Authentication:
 # This script assumes authentication with SSH keys
 
+command = case ARGV[0]
+when "list", nil
+  "xm list"
+when "info"
+  "xm info"
+when "images"
+  "xen-list-images"
+else
+  raise "no such command: #{ARGV[0]}"
+end
+
+
 require 'rubygems'
 require 'net/ssh'
-require 'highline/import'
 
 filename = './hosts.txt'
 hosts_file_opened = File.open(filename)
 hosts = hosts_file_opened.read()
 
 username = 'root'
-
-# command is a local variable
-# @command is an instance variable
-
-choose do |menu|
-  menu.choice(:'xm list') do |command|
-    @command = command
-  end 
-  menu.choice(:'xm info') do |command|
-    @command = command
-  end 
-  menu.choice(:'xen-list-images') do |command|
-    @command = command
-  end 
-end
 
 
 puts
@@ -47,7 +43,7 @@ puts
 hosts.each do |host|
   begin
     Net::SSH.start( host.chomp , username, :timeout => 10) do |ssh|
-      results = ssh.exec! @command
+      results = ssh.exec! command
       puts "#" * 10
       puts "# Results for #{host}"
       puts "Exit Status: #{results}"
